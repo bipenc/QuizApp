@@ -1,5 +1,11 @@
 Quiz application to host quiz. Built using jQuery, HTML. Just open index.html in browser and have fun hosting a quiz.
 
+To add question. Go to <b>assets/js/question.js</b>. Don't update the keys but just add yous questions.
+
+
+      eg:  "<Q.no.>": "<Q>",
+           "<Q.no.>": "<Q>",
+
 KeyBoard Shortcuts:
 -------------------
 <b>p</b> : Pass</br>
