@@ -38,45 +38,26 @@
     <div id="wrapper">
         <div class="container">
             <div class="row questions-block">
+                <div style="clear:both;">
+                    <button id="reset-localstorage" style="clear:both;">Reset</button>
+                    <button id="pausebackgroundScore">Pause Music</button>
+                    <button id="playbackgroundScore">Play Music</button>
+                </div>
                 <div class="col-sm-12 col-md-12 col-lg-12 counterwrapper">
                     <h1>PHP</h1>
-
                     <div class="phpquestion-wrapper"></div>
-                    <!--<div style="clear:both; display: none;">
-                        <button id="reset-localstorage" style="clear:both;">Reset</button>
-                        <button id="pausebackgroundScore">Pause Music</button>
-                        <button id="playbackgroundScore">Play Music</button>
-                    </div>-->
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12 counterwrapper">
                     <h1>PHP Sessions</h1>
-
                     <div class="devopsquestion-wrapper"></div>
-                    <!--<div style="clear:both; display: none;">
-                        <button id="reset-localstorage" style="clear:both;">Reset</button>
-                        <button id="pausebackgroundScore">Pause Music</button>
-                        <button id="playbackgroundScore">Play Music</button>
-                    </div>-->
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12 counterwrapper">
                     <h1>PHP Outing</h1>
-
                     <div class="phpoutingquestion-wrapper"></div>
-                    <!--<div style="clear:both; display: none;">
-                        <button id="reset-localstorage" style="clear:both;">Reset</button>
-                        <button id="pausebackgroundScore">Pause Music</button>
-                        <button id="playbackgroundScore">Play Music</button>
-                    </div>-->
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12 counterwrapper">
                     <h1>General Knowledge</h1>
-
                     <div class="generalknowledgequestion-wrapper"></div>
-                    <!--<div style="clear:both; display: none;">
-                        <button id="reset-localstorage" style="clear:both;">Reset</button>
-                        <button id="pausebackgroundScore">Pause Music</button>
-                        <button id="playbackgroundScore">Play Music</button>
-                    </div>-->
                 </div>
             </div>
 
@@ -87,16 +68,16 @@
                     <div class="question-wrapper-video">
                         <ul class="list">
                             <li>
-                                <a href="javascript:;" data-toggle="modal" data-target="#video1">1</a>
+                                <a href="#" data-toggle="modal" data-target="#video1">1</a>
                             </li>
                             <li>
-                                <a href="javascript:;" data-toggle="modal" data-target="#video2">2</a>
+                                <a href="#" data-toggle="modal" data-target="#video2">2</a>
                             </li>
                             <li>
-                                <a href="javascript:;" data-toggle="modal" data-target="#video3">3</a>
+                                <a href="#" data-toggle="modal" data-target="#video3">3</a>
                             </li>
                             <li>
-                                <a href="javascript:;" data-toggle="modal" data-target="#video4">4</a>
+                                <a href="#" data-toggle="modal" data-target="#video4">4</a>
                             </li>
                         </ul>
                     </div>
@@ -105,15 +86,13 @@
 
             <div class="row" id="display-question">
                 <div class="col-sm-12 col-md-12 col-lg-12" id="quiz-answer">
-                    <!--<h1>FHF QUIZ: 2015</h1>-->
-                    <!--<h2 class="subtitle">Q<span id="question_counter"></span>: <span id="ques"></span></h2>-->
+                    <h1>FHF QUIZ: 2015</h1>
+                    <h2 class="subtitle">Q<span id="question_counter"></span>: <span id="ques"></span></h2>
                     <h2 class="subtitle"><span id="ques"></span></h2>
 
                     <div id="countdown"></div>
-                    <!--<button id="pass">Pass</button>-->
-                    <!-- <button class="stop">Pause Music</button>
-                    <button class="play">Play Music</button> -->
-                    <!--<button id="close">Close</button>-->
+                    <button id="pass">Pass</button>
+                    <button id="close">Close</button>
                 </div>
             </div>
         </div>

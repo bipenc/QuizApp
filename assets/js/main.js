@@ -3,8 +3,8 @@
  */
 //variables
 var viewedQuestions = [],
-    totalAnswerTimeFirst = 30;  //in seconds
-totalAnswerPassTime = 10; //in seconds
+    totalAnswerTimeFirst = 60,  //in seconds
+    totalAnswerPassTime = 20; //in seconds
 
 //check for localstorage
 if (localStorage.getItem('viewedQuestion') !== null) {
@@ -16,9 +16,9 @@ $(function () {
     //Audio Elements
     var audioElementBackground = document.createElement('audio');
     audioElementBackground.setAttribute('src', 'assets/audio/backgroundmusic.mp3');
-
+    
     var audioElementQuestion = document.createElement('audio');
-    audioElementQuestion.setAttribute('src', 'assets/audio/question3.mp3');
+    audioElementQuestion.setAttribute('src', 'assets/audio/question1.mp3');
 
     var audioElementWronganswer = document.createElement('audio');
     audioElementWronganswer.setAttribute('src', 'assets/audio/wrongAnswer.mp3');
@@ -30,8 +30,7 @@ $(function () {
     audioRapidFire.setAttribute('src', 'assets/audio/rapidFire.mp3');
 
 
-    //PLAY BACKGROUND AUDIO ON LOAD
-    audioElementBackground.play();
+    
     var timeoutId = "";
 
     $(document).keypress(function(e) {
@@ -40,16 +39,13 @@ $(function () {
             //pass
             // Type p
             passAnswer();
-            $.jGrowl("Pass!!!",{life : 3000});
-
-
         } else if(e.which == 116){
             //true
             // Type t
+            $.jGrowl("Right Answer!!!",{life : 3000});
             audioElementTrueanswer.play();
             window.clearTimeout(timeoutId);
             setTimeout(closeQuestion, 200);
-            $.jGrowl("Right Answer!!!",{life : 3000});
 
         } else if (e.which == 102){
             //false
@@ -65,12 +61,12 @@ $(function () {
             closeQuestion();
 
         }  else if (e.which == 114){
-            console.log(e.keyCode);
             //reset all questions
             // Type r
             clearLocalStorage();
 
         } else if(e.which === 109) {
+            
             // Rapid Fire
             stopMusic(audioElementBackground);
             audioRapidFire.play();
@@ -86,7 +82,6 @@ $(function () {
             stopMusic(audioRapidFire);
             stopMusic(audioElementWronganswer);
             audioElementBackground.play();
-
         }
     });
 
@@ -128,15 +123,7 @@ $(function () {
 
     var count = 1;
     $.each(question, function (i, v) {
-        // count = resetCount(count);
-        /* if(i <= 28){
-         var divContent = fetchQuestions(i, count);
-         $('.question-wrapper').append(divContent);
-         } else {
-         var divContent = fetchQuestions(i, count);
-         $('.question-wrapper-bonus').append(divContent);
-         }
-         count++;*/
+
         $.each(v, function( ind , val){
             var divContent = fetchQuestions(i + '-' + ind, ind);
             $('.' +i+'-wrapper').append(divContent);
@@ -160,26 +147,14 @@ $(function () {
         return divContainer;
     }
 
-    function resetCount(count){
-        if(count == 29){
-            var count = 1;
-        }
-        return count;
-    }
-
-
     $('#pass').click(function () {
-        window.clearTimeout(timeoutId);
-        countdown("countdown", 0, totalAnswerPassTime);
-        stopMusic(audioElementQuestion);
-        audioElementQuestion.play();
+        passAnswer();
     });
 
 
     $('.counterwrapper').on('click', 'span:not(".strike")', function () {
         $(this).addClass('strike');
         var indx = $(this).data('indx');
-        console.log(indx);
         viewedQuestions.push(indx);
         localStorage.setItem('viewedQuestion', JSON.stringify(viewedQuestions));
 
@@ -200,18 +175,11 @@ $(function () {
     });
 
     $('#close').click(function () {
-        window.clearTimeout(timeoutId);
-        $('#quiz-answer').fadeOut(function () {
-            $('#countdown').html('');
-            stopMusic(audioElementQuestion);
-            audioElementBackground.play();
-            $('.counterwrapper').fadeIn();
-        });
+        closeQuestion();
     });
 
     $('#reset-localstorage').click(function () {
-        localStorage.removeItem('viewedQuestion');
-        window.location = window.location;
+        clearLocalStorage();
     });
 
     $('#pausebackgroundScore').click(function () {
@@ -233,11 +201,11 @@ $(function () {
 
     //pass
     function passAnswer(){
-
         window.clearTimeout(timeoutId);
         countdown("countdown", 0, totalAnswerPassTime);
         stopMusic(audioElementQuestion);
         audioElementQuestion.play();
+        $.jGrowl("Pass!!!",{life : 3000});
     }
     //close
     function closeQuestion(){
@@ -255,6 +223,7 @@ $(function () {
         window.location = window.location;
     }
 
-
+    //PLAY BACKGROUND AUDIO ON LOAD
+    audioElementBackground.play();
 
 });
