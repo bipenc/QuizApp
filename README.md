@@ -6,5 +6,5 @@ KeyBoard Shortcuts:
 <b>t</b> : Right Answer</br>
 <b>f</b> : Worng Answer</br>
 <b>c</b> : Close single question page and go back to Home</br>
-<b>r</b> : Reset localStorage (Clears all the selected question and reset to begining. this is useful when testing the app but recommended not to use in when hosting. Better comment out this section in codebase)</br>
+<b>r</b> : Reset localStorage (Clears all the selected question and reset to begining. This is useful when testing the app but recommended not to use in while hosting the quiz. Better comment out this section in codebase)</br>
 
