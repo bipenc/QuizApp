@@ -30,7 +30,6 @@ $(function () {
     audioRapidFire.setAttribute('src', 'assets/audio/rapidFire.mp3');
 
 
-    
     var timeoutId = "";
 
     $(document).keypress(function(e) {
